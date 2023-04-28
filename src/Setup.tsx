@@ -62,16 +62,12 @@ export const Setup: React.FC<SetupProps> = ({
                     }
                 ]
             );
-    
             setNewPlayerName("");
         };
     
-
     return(
         <>
-            <h2>
-                Setup
-            </h2>
+            <h2>Setup</h2>
             <p>
                 Some setup stuff goes here...
             </p>
@@ -79,9 +75,7 @@ export const Setup: React.FC<SetupProps> = ({
                 variant="outline-primary"
                 onClick={startGame}>Start Game
             </Button>
-            <Form
-                className='mt-5'
-            >
+            <Form className='mt-5'>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control 
