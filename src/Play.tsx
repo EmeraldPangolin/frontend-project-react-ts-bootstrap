@@ -1,9 +1,25 @@
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import { GameResult } from './front-end-model';
 
 
-export const Play = () => {
+interface PlayProps {
+    addGameResultFunc: (r: GameResult) => void;
+};
+
+export const Play: React.FC<PlayProps> = ({addGameResultFunc}) => {
     const nav = useNavigate();
+
+    const endGame = () => {
+
+        addGameResultFunc({
+            winner: "Larry"
+            , players: ["Larry", "Curly", "Moe"]
+        });
+
+        nav(-2);
+    };
+
 
     return(
         <>
@@ -15,7 +31,7 @@ export const Play = () => {
             </p>
             <Button 
                 variant="outline-primary"
-                onClick={() => nav(-2)}>Done
+                onClick={endGame}>Done
             </Button>
         </>
     );
