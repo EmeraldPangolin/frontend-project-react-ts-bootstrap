@@ -2,7 +2,7 @@
   "name": "frontend-project-react-ts-bootstrap",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://emeraldpangolin.github.io/frontend-project-react-ts-bootstrap/",
+  "homepage": "https://emeraldpangolin.github.io/frontend-project-react-ts-bootstrap",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
