@@ -1,6 +1,5 @@
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
-import { GameResult } from './front-end-model';
 import { GameResult, SetupInfo } from './front-end-model';
 
 
