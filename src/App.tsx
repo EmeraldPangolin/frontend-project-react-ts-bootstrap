@@ -13,7 +13,9 @@ import { Routes, Route } from 'react-router-dom';
 
   import { 
     GameResult
-    , calculateLeaderboard 
+    , calculateLeaderboard, 
+    SetupInfo,
+    getPreviousPlayers 
   } from './front-end-model';
   
   const hardcodedGameResults: GameResult[] = [
@@ -51,6 +53,12 @@ import { Routes, Route } from 'react-router-dom';
   
     const [results, setGameResults] = useState(hardcodedGameResults);
   
+    const [setupInfo, setSetupInfo] = useState<SetupInfo>({
+      start: ""
+      , chosenPlayers: []
+    });
+  
+
     const addGameResult = (r: GameResult) => {
       setGameResults([
         ...results
@@ -76,12 +84,21 @@ import { Routes, Route } from 'react-router-dom';
               />
             } 
           />
-          <Route path="/setup" element={<Setup/>}/>
+          <Route 
+            path="/setup" 
+            element={
+              <Setup 
+                previousPlayers={getPreviousPlayers(results)}
+                setSetupInfo={setSetupInfo}
+              />
+            } 
+          />
           <Route 
             path="/play" 
             element={
               <Play
-                addGameResultFunc={addGameResult} 
+                addGameResultFunc={addGameResult}
+                setupInfo={setupInfo} 
               />
             } 
           />
