@@ -54,12 +54,15 @@ export const Home: React.FC<HomeProps> = ({
 					}
 					{
 						leaderboardData.length > 0 &&
+						//our table for stats
 						<Table striped bordered>
 							<thead>
 								<tr>
 									<th>W</th>
 									<th>L</th>
 									<th>AVG</th>
+									<th>2 Way Wins</th>
+									<th>3 Way Wins</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -70,6 +73,8 @@ export const Home: React.FC<HomeProps> = ({
 											<td>{x.wins}</td>
 											<td>{x.losses}</td>
 											<td>{x.avg}</td>
+											<td></td>
+											<td></td>
 											<td>{x.name}</td>
 										</tr>
 									))
