@@ -63,7 +63,6 @@ export const Home: React.FC<HomeProps> = ({
 									<th>W</th>
 									<th>L</th>
 									<th>AVG</th>
-									<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -82,6 +81,44 @@ export const Home: React.FC<HomeProps> = ({
 					}
 				</Card.Body>
 			</Card>
+
+			<Card className="mt-3 overflow-hidden">
+				<Card.Header>
+				Win Direction Totals 
+				</Card.Header>
+				<Card.Body>
+					
+
+						<p>Play a game to see your leaderboard...</p>
+					
+					
+
+						<Table striped bordered>
+							<thead>
+								<tr>
+									<th>Horizontal Wins</th>
+									<th>Vertical Wins</th>
+									<th>Diagonal Wins</th>
+								</tr>
+							</thead>
+							<tbody>
+								{
+									leaderboardData.map(x => (
+										<tr>
+											{/*
+											<td>{x.horizontal}</td>
+											<td>{x.vertical}</td>
+											<td>{x.diagonal}</td>
+										*/}
+											<td>{x.name}</td>
+										</tr>
+									))
+								}
+							</tbody>
+						</Table>                        
+				</Card.Body>
+			</Card>
+
 			<Card>
 				<Card.Header>
 					Game Time Fun Facts
@@ -121,25 +158,19 @@ export const Home: React.FC<HomeProps> = ({
 								}
 							</tbody>
 						</Table>                        
-					}
-					*/}
+					}*/}
 				</Card.Body>
 			</Card>
             <Card>
 				<Card.Header>
-					Two Way Wins
+					Special Win Conditions
 				</Card.Header>
 				<Card.Body>
 					<p>
-						{`Happens ${(twoDirectionalWinPercent * 100).toFixed(2)}% of games`}
+						{`Two Directional Wins happen ${(twoDirectionalWinPercent * 100).toFixed(2)}% of games`}
 					</p>
-				</Card.Body>
-				<Card.Header>
-					Three Way Wins
-				</Card.Header>
-				<Card.Body>
 					<p>
-						{`Happens ${(threeDirectionalWinPercent * 100).toFixed(2)}% of games`}
+						{`Three Directional Wins happen ${(threeDirectionalWinPercent * 100).toFixed(2)}% of games`}
 					</p>
 				</Card.Body>
 			</Card>	

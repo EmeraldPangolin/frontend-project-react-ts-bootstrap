@@ -69,7 +69,7 @@ const hardcodedGameResults: GameResult[] = [
 			, start: "2023-03-23T17:38:23.230Z"
 			, end: "2023-03-23T17:40:23.230Z"
 			, twoDirectionalWin: true
-			, threeDirectionalWin: true
+			, threeDirectionalWin: false
 	}
 	, {
 			winner: "Joe"
@@ -77,7 +77,7 @@ const hardcodedGameResults: GameResult[] = [
 			, start: "2023-03-23T17:38:23.230Z"
 			, end: "2023-03-23T17:40:23.230Z"
 			, twoDirectionalWin: false
-			, threeDirectionalWin: false
+			, threeDirectionalWin: true
 	}
 	, {
 			winner: "Jack"

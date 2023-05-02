@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { GameResult, SetupInfo } from './front-end-model';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
+import { Dropdown, Option } from "./Dropdown";
 
 interface PlayProps {
     addGameResultFunc: (r: GameResult) => void;
@@ -45,10 +46,22 @@ export const Play: React.FC<PlayProps> = ({
                 <Form.Check
                     label="Three Directional Win"
                     type="switch"
-                    checked={happened}
+                    checked={!happened}
                     onChange={(e) => setHappened(e.target.checked)}
                 />                
             </p>
+            <div>
+                <Dropdown
+                formLabel="Choose a service"
+                buttonText="Send form"
+                action="/"
+                >
+                <Option selected value="Click to see options" />
+                <Option value="Option 1" />
+                <Option value="Option 2" />
+                <Option value="Option 3" />
+                </Dropdown>
+            </div>
             {
                 setupInfo.chosenPlayers.map(x => (
                     <Button 
