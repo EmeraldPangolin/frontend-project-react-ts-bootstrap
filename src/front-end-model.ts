@@ -115,7 +115,7 @@ export const getPercentGamesTwoDirectionalWin = (results: GameResult[]) => {
 
 export const getPercentGamesThreeDirectionalWin = (results: GameResult[]) => {
     return results.length
-        ? results.filter(x => x.twoDirectionalWin).length / results.length
+        ? results.filter(x => x.threeDirectionalWin).length / results.length
         : 0
     ;
 };

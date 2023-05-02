@@ -178,7 +178,6 @@ const App = () => {
 								averageGameDurationData={getAverageGameDurationByPlayerCount(results)}
 								twoDirectionalWinPercent={getPercentGamesTwoDirectionalWin(results)}
 								threeDirectionalWinPercent={getPercentGamesThreeDirectionalWin(results)}
-
 							/>
 						} 
 					/>
