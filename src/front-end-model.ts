@@ -5,7 +5,8 @@ export interface GameResult {
     players: string[];
     start: string;
     end: string;
-    reallyCoolThingHappened: boolean;
+    twoDirectionalWin: boolean;
+    threeDirectionalWin: boolean;
 };
 
 export interface LeaderboardPlayer {
@@ -105,9 +106,16 @@ export const getAverageGameDurationByPlayerCount = (results: GameResult[]) => {
         );
 };
 
-export const getPercentGamesReallyCoolThingHappened = (results: GameResult[]) => {
+export const getPercentGamesTwoDirectionalWin = (results: GameResult[]) => {
     return results.length
-        ? results.filter(x => x.reallyCoolThingHappened).length / results.length
+        ? results.filter(x => x.twoDirectionalWin).length / results.length
+        : 0
+    ;
+};
+
+export const getPercentGamesThreeDirectionalWin = (results: GameResult[]) => {
+    return results.length
+        ? results.filter(x => x.twoDirectionalWin).length / results.length
         : 0
     ;
 };

@@ -25,7 +25,8 @@ export const Play: React.FC<PlayProps> = ({
             , players: setupInfo.chosenPlayers
             , start: setupInfo.start
             , end: new Date().toISOString()
-            , reallyCoolThingHappened: happened
+            , twoDirectionalWin: happened
+            , threeDirectionalWin: happened
         });
         nav(-2);
     };
@@ -33,9 +34,16 @@ export const Play: React.FC<PlayProps> = ({
         <>
             <h2>Play</h2>
             <p>
-                Some data collection stuff goes here...
                 <Form.Check
-                    label="Really cool thing happened"
+                    label="Two Directional Win"
+                    type="switch"
+                    checked={happened}
+                    onChange={(e) => setHappened(e.target.checked)}
+                />                
+            </p>
+            <p>
+                <Form.Check
+                    label="Three Directional Win"
                     type="switch"
                     checked={happened}
                     onChange={(e) => setHappened(e.target.checked)}

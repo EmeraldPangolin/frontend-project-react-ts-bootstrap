@@ -77,7 +77,7 @@ export const Setup: React.FC<SetupProps> = ({
             </Button>
             <Form className='mt-5'>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label>Player Name</Form.Label>
                     <Form.Control 
                         type="text" 
                         placeholder="Enter new player name"

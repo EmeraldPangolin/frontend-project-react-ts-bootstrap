@@ -21,7 +21,8 @@ import {
 	, getShortestGameDuration
 	, getLongestGameDuration
 	, getAverageGameDurationByPlayerCount
-	, getPercentGamesReallyCoolThingHappened
+	, getPercentGamesTwoDirectionalWin
+	, getPercentGamesThreeDirectionalWin
 } from './front-end-model';
 
 import Form from 'react-bootstrap/Form';
@@ -35,49 +36,56 @@ const hardcodedGameResults: GameResult[] = [
 			, players: ["Tom", "Taylor"]
 			, start: "2023-03-23T17:38:23.230Z"
 			, end: "2023-03-23T17:40:23.230Z"
-			, reallyCoolThingHappened: false
+			, twoDirectionalWin: false
+			, threeDirectionalWin: false
 	}
 	, {
 			winner: "Taylor"
 			, players: ["Jack", "Taylor"]
 			, start: "2023-03-23T17:38:23.230Z"
 			, end: "2023-03-23T17:40:23.230Z"
-			, reallyCoolThingHappened: false
+			, twoDirectionalWin: false
+			, threeDirectionalWin: false
 	}
 	, {
 			winner: "Taylor"
-			, players: ["Tom", "Taylor", "Jack"]
+			, players: ["Tom", "Taylor"]
 			, start: "2023-03-23T17:38:23.230Z"
 			, end: "2023-03-23T17:48:23.230Z"
-			, reallyCoolThingHappened: false
+			, twoDirectionalWin: false
+			, threeDirectionalWin: false
 	}
 	, {
 			winner: "X"
 			, players: ["X", "Joe"]
 			, start: "2023-03-23T17:38:23.230Z"
 			, end: "2023-03-23T17:40:23.230Z"
-			, reallyCoolThingHappened: false
+			, twoDirectionalWin: true
+			, threeDirectionalWin: false
 	}
 	, {
 			winner: "X"
 			, players: ["X", "Joe"]
 			, start: "2023-03-23T17:38:23.230Z"
 			, end: "2023-03-23T17:40:23.230Z"
-			, reallyCoolThingHappened: false
+			, twoDirectionalWin: true
+			, threeDirectionalWin: true
 	}
 	, {
 			winner: "Joe"
 			, players: ["X", "Joe"]
 			, start: "2023-03-23T17:38:23.230Z"
 			, end: "2023-03-23T17:40:23.230Z"
-			, reallyCoolThingHappened: false
+			, twoDirectionalWin: false
+			, threeDirectionalWin: false
 	}
 	, {
 			winner: "Jack"
-			, players: ["X", "Joe", "Jack"]
+			, players: ["X", "Joe"]
 			, start: "2023-03-23T17:38:23.230Z"
 			, end: "2023-03-23T17:40:23.230Z"
-			, reallyCoolThingHappened: false
+			, twoDirectionalWin: false
+			, threeDirectionalWin: false
 	}
 ];
 
@@ -148,7 +156,7 @@ const App = () => {
 				<Form.Label>Email address</Form.Label>
 				<Form.Control 
 					type="text" 
-					placeholder="Enter new player name"
+					placeholder="Enter the email to save under"
 					value={emailKey} 
 					onChange={(e) => setEmailKey(e.target.value)}
 				/>
@@ -168,7 +176,9 @@ const App = () => {
 								shortestGameDuration={getShortestGameDuration(results)}
 								longestGameDuration={getLongestGameDuration(results)}
 								averageGameDurationData={getAverageGameDurationByPlayerCount(results)}
-								reallyCoolThingHappenedPercent={getPercentGamesReallyCoolThingHappened(results)}
+								twoDirectionalWinPercent={getPercentGamesTwoDirectionalWin(results)}
+								threeDirectionalWinPercent={getPercentGamesThreeDirectionalWin(results)}
+
 							/>
 						} 
 					/>

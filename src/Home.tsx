@@ -13,7 +13,8 @@ interface HomeProps {
 		playerCount: number;
 		avgGameDuration: number;
 	}[];
-    reallyCoolThingHappenedPercent: number;
+    twoDirectionalWinPercent: number;
+	threeDirectionalWinPercent: number;
 
 };
 
@@ -22,7 +23,8 @@ export const Home: React.FC<HomeProps> = ({
 	, shortestGameDuration
 	, longestGameDuration
     , averageGameDurationData
-    , reallyCoolThingHappenedPercent
+    , twoDirectionalWinPercent
+	, threeDirectionalWinPercent
 }) => {
 
     console.log(leaderboardData);
@@ -61,8 +63,6 @@ export const Home: React.FC<HomeProps> = ({
 									<th>W</th>
 									<th>L</th>
 									<th>AVG</th>
-									<th>2 Way Wins</th>
-									<th>3 Way Wins</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -73,8 +73,6 @@ export const Home: React.FC<HomeProps> = ({
 											<td>{x.wins}</td>
 											<td>{x.losses}</td>
 											<td>{x.avg}</td>
-											<td></td>
-											<td></td>
 											<td>{x.name}</td>
 										</tr>
 									))
@@ -95,12 +93,21 @@ export const Home: React.FC<HomeProps> = ({
 					<p>
 						{`${format(longestGameDuration)} longest game ever`}
 					</p>
+					{
+						averageGameDurationData.length > 0 &&
+						averageGameDurationData.map(x => (
+							<p>
+								{`${format(x.avgGameDuration)} average game time`}
+							</p>
+						))
+					}
+
+					{/*
                     {
 						averageGameDurationData.length > 0 &&
 						<Table striped bordered>
 							<thead>
 								<tr>
-									<th>Player Count</th>
 									<th>Average Duration</th>
 								</tr>
 							</thead>
@@ -108,7 +115,6 @@ export const Home: React.FC<HomeProps> = ({
 								{
 									averageGameDurationData.map(x => (
 										<tr>
-											<td>{x.playerCount}</td>
 											<td>{`${format(x.avgGameDuration)}`}</td>
 										</tr>
 									))
@@ -116,15 +122,24 @@ export const Home: React.FC<HomeProps> = ({
 							</tbody>
 						</Table>                        
 					}
+					*/}
 				</Card.Body>
 			</Card>
             <Card>
 				<Card.Header>
-					Really Cool Thing
+					Two Way Wins
 				</Card.Header>
 				<Card.Body>
 					<p>
-						{`Happens ${(reallyCoolThingHappenedPercent * 100).toFixed(2)}% of games`}
+						{`Happens ${(twoDirectionalWinPercent * 100).toFixed(2)}% of games`}
+					</p>
+				</Card.Body>
+				<Card.Header>
+					Three Way Wins
+				</Card.Header>
+				<Card.Body>
+					<p>
+						{`Happens ${(threeDirectionalWinPercent * 100).toFixed(2)}% of games`}
 					</p>
 				</Card.Body>
 			</Card>	
