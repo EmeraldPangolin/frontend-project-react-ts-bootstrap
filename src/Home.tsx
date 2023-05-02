@@ -16,6 +16,9 @@ interface HomeProps {
     twoDirectionalWinPercent: number;
 	threeDirectionalWinPercent: number;
 
+	verticalWinTotal: number;
+	horizontalWinTotal: number;
+	diagonalWinTotal: number;
 };
 
 export const Home: React.FC<HomeProps> = ({
@@ -25,6 +28,9 @@ export const Home: React.FC<HomeProps> = ({
     , averageGameDurationData
     , twoDirectionalWinPercent
 	, threeDirectionalWinPercent
+	, verticalWinTotal
+	, horizontalWinTotal
+	, diagonalWinTotal
 }) => {
 
     console.log(leaderboardData);
@@ -62,7 +68,8 @@ export const Home: React.FC<HomeProps> = ({
 								<tr>
 									<th>W</th>
 									<th>L</th>
-									<th>AVG</th>
+									<th>Win Rate</th>
+									<th>Player</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -71,7 +78,7 @@ export const Home: React.FC<HomeProps> = ({
 										<tr>
 											<td>{x.wins}</td>
 											<td>{x.losses}</td>
-											<td>{x.avg}</td>
+											<td>{x.avg.substring(0,5)}%</td>
 											<td>{x.name}</td>
 										</tr>
 									))
@@ -89,7 +96,7 @@ export const Home: React.FC<HomeProps> = ({
 				<Card.Body>
 					
 
-						<p>Play a game to see your leaderboard...</p>
+
 					
 					
 
@@ -105,12 +112,10 @@ export const Home: React.FC<HomeProps> = ({
 								{
 									leaderboardData.map(x => (
 										<tr>
-											{/*
-											<td>{x.horizontal}</td>
-											<td>{x.vertical}</td>
-											<td>{x.diagonal}</td>
-										*/}
-											<td>{x.name}</td>
+											
+											<td>{horizontalWinTotal}</td>
+											<td>{verticalWinTotal}</td>
+											<td>{diagonalWinTotal}</td>
 										</tr>
 									))
 								}
@@ -139,26 +144,6 @@ export const Home: React.FC<HomeProps> = ({
 						))
 					}
 
-					{/*
-                    {
-						averageGameDurationData.length > 0 &&
-						<Table striped bordered>
-							<thead>
-								<tr>
-									<th>Average Duration</th>
-								</tr>
-							</thead>
-							<tbody>
-								{
-									averageGameDurationData.map(x => (
-										<tr>
-											<td>{`${format(x.avgGameDuration)}`}</td>
-										</tr>
-									))
-								}
-							</tbody>
-						</Table>                        
-					}*/}
 				</Card.Body>
 			</Card>
             <Card>

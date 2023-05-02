@@ -23,6 +23,9 @@ import {
 	, getAverageGameDurationByPlayerCount
 	, getPercentGamesTwoDirectionalWin
 	, getPercentGamesThreeDirectionalWin
+	, getDiagonalWinTotal
+	, getHorizontalWinTotal
+	, getVerticalWinTotal
 } from './front-end-model';
 
 import Form from 'react-bootstrap/Form';
@@ -38,6 +41,9 @@ const hardcodedGameResults: GameResult[] = [
 			, end: "2023-03-23T17:40:23.230Z"
 			, twoDirectionalWin: false
 			, threeDirectionalWin: false
+			, verticalWin: false
+			, horizontalWin: true
+			, diagonalWin: false
 	}
 	, {
 			winner: "Taylor"
@@ -46,6 +52,9 @@ const hardcodedGameResults: GameResult[] = [
 			, end: "2023-03-23T17:40:23.230Z"
 			, twoDirectionalWin: false
 			, threeDirectionalWin: false
+			, verticalWin: true
+			, horizontalWin: false
+			, diagonalWin: false
 	}
 	, {
 			winner: "Taylor"
@@ -54,6 +63,9 @@ const hardcodedGameResults: GameResult[] = [
 			, end: "2023-03-23T17:48:23.230Z"
 			, twoDirectionalWin: false
 			, threeDirectionalWin: false
+			, verticalWin: false
+			, horizontalWin: false
+			, diagonalWin: true
 	}
 	, {
 			winner: "X"
@@ -62,6 +74,9 @@ const hardcodedGameResults: GameResult[] = [
 			, end: "2023-03-23T17:40:23.230Z"
 			, twoDirectionalWin: true
 			, threeDirectionalWin: false
+			, verticalWin: false
+			, horizontalWin: false
+			, diagonalWin: false
 	}
 	, {
 			winner: "X"
@@ -70,6 +85,9 @@ const hardcodedGameResults: GameResult[] = [
 			, end: "2023-03-23T17:40:23.230Z"
 			, twoDirectionalWin: true
 			, threeDirectionalWin: false
+			, verticalWin: false
+			, horizontalWin: false
+			, diagonalWin: false
 	}
 	, {
 			winner: "Joe"
@@ -78,6 +96,9 @@ const hardcodedGameResults: GameResult[] = [
 			, end: "2023-03-23T17:40:23.230Z"
 			, twoDirectionalWin: false
 			, threeDirectionalWin: true
+			, verticalWin: false
+			, horizontalWin: false
+			, diagonalWin: false
 	}
 	, {
 			winner: "Jack"
@@ -86,6 +107,9 @@ const hardcodedGameResults: GameResult[] = [
 			, end: "2023-03-23T17:40:23.230Z"
 			, twoDirectionalWin: false
 			, threeDirectionalWin: false
+			, verticalWin: false
+			, horizontalWin: false
+			, diagonalWin: false
 	}
 ];
 
@@ -178,6 +202,9 @@ const App = () => {
 								averageGameDurationData={getAverageGameDurationByPlayerCount(results)}
 								twoDirectionalWinPercent={getPercentGamesTwoDirectionalWin(results)}
 								threeDirectionalWinPercent={getPercentGamesThreeDirectionalWin(results)}
+								horizontalWinTotal={getHorizontalWinTotal(results)}
+								verticalWinTotal={getVerticalWinTotal(results)}
+								diagonalWinTotal={getDiagonalWinTotal(results)}
 							/>
 						} 
 					/>

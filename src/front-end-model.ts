@@ -7,6 +7,9 @@ export interface GameResult {
     end: string;
     twoDirectionalWin: boolean;
     threeDirectionalWin: boolean;
+    horizontalWin: boolean;
+    verticalWin: boolean;
+    diagonalWin: boolean;
 };
 
 export interface LeaderboardPlayer {
@@ -14,6 +17,7 @@ export interface LeaderboardPlayer {
     wins: number;
     losses: number;
     avg: string;
+
 };
 export interface SetupInfo {
     start: string;
@@ -51,7 +55,7 @@ export const calculateLeaderboard: CalculateLeaderboardFunc = (results) => {
             name: x.name
             , wins: x.wins 
             , losses: x.totalGames - x.wins
-            , avg: x.wins / x.totalGames
+            , avg: x.wins / x.totalGames * 100
         }))
         // Sort order, with tie breaks that include number of games played
         .sort(
@@ -116,6 +120,29 @@ export const getPercentGamesTwoDirectionalWin = (results: GameResult[]) => {
 export const getPercentGamesThreeDirectionalWin = (results: GameResult[]) => {
     return results.length
         ? results.filter(x => x.threeDirectionalWin).length / results.length
+        : 0
+    ;
+};
+
+
+
+export const getVerticalWinTotal = (results: GameResult[]) => {
+    return results.length
+        ? results.filter(x => x.verticalWin).length
+        : 0
+    ;
+};
+
+export const getHorizontalWinTotal = (results: GameResult[]) => {
+    return results.length
+        ? results.filter(x => x.horizontalWin).length
+        : 0
+    ;
+};
+
+export const getDiagonalWinTotal = (results: GameResult[]) => {
+    return results.length
+        ? results.filter(x => x.diagonalWin).length
         : 0
     ;
 };
