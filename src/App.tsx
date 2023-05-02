@@ -191,6 +191,7 @@ const App = () => {
 				</Button>
 			</Form.Group>
 			<hr />
+			<HashRouter>
 				<Routes>
 					<Route 
 						path="/" 
@@ -227,6 +228,7 @@ const App = () => {
 						} 
 					/>
 				</Routes>
+				</HashRouter>
 		</div>
 	);
 }
