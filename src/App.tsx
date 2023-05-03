@@ -33,6 +33,7 @@ import Button from 'react-bootstrap/Button';
 import localforage from 'localforage';
 
 
+/*
 const hardcodedGameResults: GameResult[] = [
 	{
 			winner: "Tom"
@@ -112,11 +113,12 @@ const hardcodedGameResults: GameResult[] = [
 			, diagonalWin: false
 	}
 ];
+*/
 
 const App = () => {
 
 	// State hooks...
-	const [results, setGameResults] = useState(hardcodedGameResults);
+	const [results, setGameResults] = useState<GameResult[]>([]);
 
 	const [setupInfo, setSetupInfo] = useState<SetupInfo>({
 		start: ""
