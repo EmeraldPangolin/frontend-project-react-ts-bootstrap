@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://emeraldpangolin.github.io/frontend-project-react-ts-bootstrap",
   "dependencies": {
+    "@aws-sdk/util-dynamodb": "^3.325.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
