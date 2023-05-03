@@ -32,7 +32,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import localforage from 'localforage';
 
-import { saveGameToCloud, loadGamesFromCloud } from './tca-cloud-api.js';
+import { saveGameToCloud, loadGamesFromCloud } from './tca-cloud-api';
 
 
 const App = () => {
@@ -53,22 +53,40 @@ const App = () => {
 	useEffect(
 		() => {
 
-			const loadEmailKey = async () => {
+			const loadEmailKeyAndGameResults = async () => {
 
 				try {
 					const ek = String(await localforage.getItem("emailKey")) ?? "";
 
-					setEmailKeyInput(ek);
-					setEmailKeySaved(ek);
+					if (ek.length > 0) {
+
+						const resultsFromCloud = await loadGamesFromCloud(
+							ek
+							, "tca-bar-react-ts-bootstrap"
+						);
+
+						if (!ignore) {
+							setGameResults(resultsFromCloud);
+						}
+					}
+
+					if (!ignore) { 
+						setEmailKeyInput(ek);
+						setEmailKeySaved(ek);
+					}
 				}
 				catch (err) {
 					console.error(err);
 				}
 			};
 
-			loadEmailKey();
+			let ignore = false;
+			loadEmailKeyAndGameResults();
+			return () => {
+				ignore = true;
+			};
 		}
-		, []
+		, [emailKeySaved]
 	);
 
 	// Helper functions...
@@ -77,7 +95,7 @@ const App = () => {
 				// Save the game result to the cloud.
 				saveGameToCloud(
 					emailKeySaved
-					, "frontend-project-react-ts-bootstrap"
+					, "tca-bar-react-ts-bootstrap"
 					, r.end
 					, r
 				);
