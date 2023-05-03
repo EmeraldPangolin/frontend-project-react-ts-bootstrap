@@ -32,88 +32,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import localforage from 'localforage';
 
+import { saveGameToCloud, loadGamesFromCloud } from './tca-cloud-api.js';
 
-/*
-const hardcodedGameResults: GameResult[] = [
-	{
-			winner: "Tom"
-			, players: ["Tom", "Taylor"]
-			, start: "2023-03-23T17:38:23.230Z"
-			, end: "2023-03-23T17:40:23.230Z"
-			, twoDirectionalWin: false
-			, threeDirectionalWin: false
-			, verticalWin: false
-			, horizontalWin: true
-			, diagonalWin: false
-	}
-	, {
-			winner: "Taylor"
-			, players: ["Jack", "Taylor"]
-			, start: "2023-03-23T17:38:23.230Z"
-			, end: "2023-03-23T17:40:23.230Z"
-			, twoDirectionalWin: false
-			, threeDirectionalWin: false
-			, verticalWin: true
-			, horizontalWin: false
-			, diagonalWin: false
-	}
-	, {
-			winner: "Taylor"
-			, players: ["Tom", "Taylor"]
-			, start: "2023-03-23T17:38:23.230Z"
-			, end: "2023-03-23T17:48:23.230Z"
-			, twoDirectionalWin: false
-			, threeDirectionalWin: false
-			, verticalWin: false
-			, horizontalWin: false
-			, diagonalWin: true
-	}
-	, {
-			winner: "X"
-			, players: ["X", "Joe"]
-			, start: "2023-03-23T17:38:23.230Z"
-			, end: "2023-03-23T17:40:23.230Z"
-			, twoDirectionalWin: true
-			, threeDirectionalWin: false
-			, verticalWin: false
-			, horizontalWin: false
-			, diagonalWin: false
-	}
-	, {
-			winner: "X"
-			, players: ["X", "Joe"]
-			, start: "2023-03-23T17:38:23.230Z"
-			, end: "2023-03-23T17:40:23.230Z"
-			, twoDirectionalWin: true
-			, threeDirectionalWin: false
-			, verticalWin: false
-			, horizontalWin: false
-			, diagonalWin: false
-	}
-	, {
-			winner: "Joe"
-			, players: ["X", "Joe"]
-			, start: "2023-03-23T17:38:23.230Z"
-			, end: "2023-03-23T17:40:23.230Z"
-			, twoDirectionalWin: false
-			, threeDirectionalWin: true
-			, verticalWin: false
-			, horizontalWin: false
-			, diagonalWin: false
-	}
-	, {
-			winner: "Jack"
-			, players: ["X", "Joe"]
-			, start: "2023-03-23T17:38:23.230Z"
-			, end: "2023-03-23T17:40:23.230Z"
-			, twoDirectionalWin: false
-			, threeDirectionalWin: false
-			, verticalWin: false
-			, horizontalWin: false
-			, diagonalWin: false
-	}
-];
-*/
 
 const App = () => {
 
@@ -153,6 +73,17 @@ const App = () => {
 
 	// Helper functions...
 	const addGameResult = (r: GameResult) => {
+
+				// Save the game result to the cloud.
+				saveGameToCloud(
+					emailKeySaved
+					, "frontend-project-react-ts-bootstrap"
+					, r.end
+					, r
+				);
+		
+				// Optimistically update the lifted app state.
+
 		setGameResults([
 			...results
 			, r
