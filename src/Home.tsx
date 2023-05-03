@@ -94,10 +94,14 @@ export const Home: React.FC<HomeProps> = ({
 				Win Direction Totals 
 				</Card.Header>
 				<Card.Body>
-					
+					{
+						leaderboardData.length == 0 &&
+						<p>Play a game to see your leaderboard...</p>
+					}
 
-
-					
+					{
+						leaderboardData.length > 0 &&
+						//our table for stats
 					
 
 						<Table striped bordered>
@@ -120,7 +124,8 @@ export const Home: React.FC<HomeProps> = ({
 									))
 								}
 							</tbody>
-						</Table>                        
+						</Table>   
+					}                     
 				</Card.Body>
 			</Card>
 
