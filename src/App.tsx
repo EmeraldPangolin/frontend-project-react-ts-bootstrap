@@ -125,7 +125,8 @@ const App = () => {
 		, chosenPlayers: []
 	});
 
-	const [emailKey, setEmailKey] = useState("");
+	const [emailKeyInput, setEmailKeyInput] = useState("");
+	const [emailKeySaved, setEmailKeySaved] = useState("");
 
 	
 	// useEffect hook
@@ -135,9 +136,10 @@ const App = () => {
 			const loadEmailKey = async () => {
 
 				try {
-					setEmailKey(
-						await localforage.getItem("emailKey") ?? ""
-					);
+					const ek = String(await localforage.getItem("emailKey")) ?? "";
+
+					setEmailKeyInput(ek);
+					setEmailKeySaved(ek);
 				}
 				catch (err) {
 					console.error(err);
@@ -161,8 +163,10 @@ const App = () => {
 		try {
 			await localforage.setItem(
 				"emailKey"
-				, emailKey
+				, emailKeyInput
 			);
+
+			setEmailKeySaved(emailKeyInput);
 		}
 		catch (err) {
 			console.error(err);
@@ -183,8 +187,8 @@ const App = () => {
 				<Form.Control 
 					type="text" 
 					placeholder="Enter the email to save under"
-					value={emailKey} 
-					onChange={(e) => setEmailKey(e.target.value)}
+					value={emailKeyInput} 
+					onChange={(e) => setEmailKeyInput(e.target.value)}
 				/>
 				<Button
 					onClick={saveEmailKey}
