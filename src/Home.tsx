@@ -130,16 +130,16 @@ export const Home: React.FC<HomeProps> = ({
 				</Card.Header>
 				<Card.Body>
 					<p>
-						{`${format(shortestGameDuration)} shortest game ever`}
+						{`Shortest game ever: ${Number.isInteger(shortestGameDuration) ? format(shortestGameDuration) : "N/A"}`}
 					</p>
 					<p>
-						{`${format(longestGameDuration)} longest game ever`}
+						{`Longest game ever: ${Number.isInteger(longestGameDuration) ? format(longestGameDuration) : "N/A"}`}
 					</p>
 					{
 						averageGameDurationData.length > 0 &&
 						averageGameDurationData.map(x => (
 							<p>
-								{`${format(x.avgGameDuration)} average game time`}
+								{`The average game length is: ${format(x.avgGameDuration)}`}
 							</p>
 						))
 					}
