@@ -42,11 +42,12 @@ export const Play: React.FC<PlayProps> = ({
     };
     return (
         <>
-            <h2>Play</h2>
-            <br/>
+            <h2 >Play</h2>
+            <hr/>
             <form>
-                <div>
-                    <p>
+                <h3>Win Direction</h3>
+                <div className="d-flex flex-row m-3 justify-content-center">
+                    <p className="mr-5 p-3">
                         <Form.Check
                             label="Horizontal Win"
                             type="switch"
@@ -54,7 +55,7 @@ export const Play: React.FC<PlayProps> = ({
                             onChange={(e) => setHappenedHorizontal(e.target.checked)}
                         />                
                     </p>
-                    <p>
+                    <p className="mr-5 p-3">
                         <Form.Check
                             label="Vertical Win"
                             type="switch"
@@ -62,7 +63,7 @@ export const Play: React.FC<PlayProps> = ({
                             onChange={(e) => setHappenedVertical(e.target.checked)}
                         />                
                     </p>
-                    <p>
+                    <p className="mr-5 p-3">
                         <Form.Check
                             label="Diagonal Win"
                             type="switch"
@@ -71,9 +72,8 @@ export const Play: React.FC<PlayProps> = ({
                         />                
                     </p>
                 </div>
-                <hr/>
-                <div>
-                    <p>
+                <div className="d-flex flex-col m-3 justify-content-center">
+                    <p className="mr-5 p-2">
                         <Form.Check
                             label="Two Directional Win"
                             type="switch"
@@ -81,7 +81,7 @@ export const Play: React.FC<PlayProps> = ({
                             onChange={(e) => setHappened(e.target.checked)}
                         />                
                     </p>
-                    <p>
+                    <p className="mr-5 p-2">
                         <Form.Check
                             label="Three Directional Win"
                             type="switch"
