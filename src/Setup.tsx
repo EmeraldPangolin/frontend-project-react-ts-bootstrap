@@ -40,6 +40,7 @@ export const Setup: React.FC<SetupProps> = ({
                     .filter(x => x.checked)
                     .map(x => x.name)
             });
+            
             nav("/play");
         };
     
@@ -68,9 +69,6 @@ export const Setup: React.FC<SetupProps> = ({
     return(
         <>
             <h2>Setup</h2>
-            <p>
-                Some setup stuff goes here...
-            </p>
             <Button 
                 variant="outline-primary"
                 onClick={startGame}>Start Game

@@ -120,6 +120,7 @@ export const Home: React.FC<HomeProps> = ({
 											<td>{horizontalWinTotal}</td>
 											<td>{verticalWinTotal}</td>
 											<td>{diagonalWinTotal}</td>
+
 										</tr>
 									))
 								}

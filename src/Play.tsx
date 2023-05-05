@@ -14,6 +14,14 @@ export const Play: React.FC<PlayProps> = ({
 }) => {
 
     console.log(setupInfo);
+    const nav = useNavigate();
+
+    if (setupInfo.chosenPlayers.length !== 2) {
+        alert("You need to pick two names");
+        setTimeout(function(){
+            nav(-1);
+        }, 50); 
+    }
 
     const [happened, setHappened] = useState(false);
     const [happened2, setHappened2] = useState(false);
@@ -23,7 +31,7 @@ export const Play: React.FC<PlayProps> = ({
     const [happenedDiagonal, setHappenedDiagonal] = useState(false);
 
 
-    const nav = useNavigate();
+    
 
     const endGame = (winner: string) => {
         
@@ -50,7 +58,8 @@ export const Play: React.FC<PlayProps> = ({
                     <p className="mr-5 p-3">
                         <Form.Check
                             label="Horizontal Win"
-                            type="switch"
+                            type="radio"
+                            name="group1"
                             checked={happenedHorizontal}
                             onChange={(e) => setHappenedHorizontal(e.target.checked)}
                         />                
@@ -58,7 +67,8 @@ export const Play: React.FC<PlayProps> = ({
                     <p className="mr-5 p-3">
                         <Form.Check
                             label="Vertical Win"
-                            type="switch"
+                            type="radio"
+                            name="group1"
                             checked={happenedVertical}
                             onChange={(e) => setHappenedVertical(e.target.checked)}
                         />                
@@ -66,7 +76,8 @@ export const Play: React.FC<PlayProps> = ({
                     <p className="mr-5 p-3">
                         <Form.Check
                             label="Diagonal Win"
-                            type="switch"
+                            type="radio"
+                            name="group1"
                             checked={happenedDiagonal}
                             onChange={(e) => setHappenedDiagonal(e.target.checked)}
                         />                
@@ -76,7 +87,8 @@ export const Play: React.FC<PlayProps> = ({
                     <p className="mr-5 p-2">
                         <Form.Check
                             label="Two Directional Win"
-                            type="switch"
+                            type="radio"
+                            name="group1"
                             checked={happened}
                             onChange={(e) => setHappened(e.target.checked)}
                         />                
@@ -84,7 +96,8 @@ export const Play: React.FC<PlayProps> = ({
                     <p className="mr-5 p-2">
                         <Form.Check
                             label="Three Directional Win"
-                            type="switch"
+                            type="radio"
+                            name="group1"
                             checked={happened2}
                             onChange={(e) => setHappened2(e.target.checked)}
                         />                

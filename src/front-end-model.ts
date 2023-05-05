@@ -18,6 +18,7 @@ export interface LeaderboardPlayer {
     losses: number;
     avg: string;
 
+
 };
 export interface SetupInfo {
     start: string;
