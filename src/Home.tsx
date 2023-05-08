@@ -45,13 +45,15 @@ export const Home: React.FC<HomeProps> = ({
 
 	return (
 		<>
+			<br></br>
 			<Button 
 				variant="outline-primary"
+				
 				onClick={() => nav("/setup")}
 			>
 				Play Bar
 			</Button>
-			<Card className="mt-3 overflow-hidden">
+			<Card className="mt-5 p-3 overflow-hidden">
 				<Card.Header>
 				Leaderboard
 				</Card.Header>
@@ -89,7 +91,7 @@ export const Home: React.FC<HomeProps> = ({
 				</Card.Body>
 			</Card>
 
-			<Card className="mt-3 overflow-hidden">
+			<Card className="mt-5 p-3 overflow-hidden">
 				<Card.Header>
 				Win Direction Totals 
 				</Card.Header>
@@ -130,7 +132,7 @@ export const Home: React.FC<HomeProps> = ({
 				</Card.Body>
 			</Card>
 
-			<Card>
+			<Card className="mt-5 p-3">
 				<Card.Header>
 					Game Time Fun Facts
 				</Card.Header>
@@ -152,7 +154,7 @@ export const Home: React.FC<HomeProps> = ({
 
 				</Card.Body>
 			</Card>
-            <Card>
+            <Card className="mt-5 p-3">
 				<Card.Header>
 					Special Win Conditions
 				</Card.Header>

@@ -68,7 +68,7 @@ export const Setup: React.FC<SetupProps> = ({
     
     return(
         <>
-            <h2>Setup</h2>
+            <h2 className='mt-3 p-2'>Setup</h2>
             <Button 
                 variant="outline-primary"
                 onClick={startGame}>Start Game
@@ -90,7 +90,7 @@ export const Setup: React.FC<SetupProps> = ({
                 </Form.Group>
                 {
                     chosenPlayers.map(x =>(
-                        <Form.Check
+                        <Form.Check className='d-flex flex-row m-1 justify-content-center'
                             label={x.name}
                             checked={x.checked}
                             onChange={() => togglePlayer(x.name)}
