@@ -70,7 +70,7 @@ export const Setup: React.FC<SetupProps> = ({
         <>
             <h2 className='mt-3 p-2'>Setup</h2>
             <Button 
-                variant="outline-primary"
+                variant="outline-success"
                 onClick={startGame}>Start Game
             </Button>
             <Form className='mt-5'>

@@ -47,7 +47,7 @@ export const Home: React.FC<HomeProps> = ({
 		<>
 			<br></br>
 			<Button 
-				variant="outline-primary"
+				variant="outline-success"
 				
 				onClick={() => nav("/setup")}
 			>

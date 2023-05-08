@@ -108,7 +108,7 @@ export const Play: React.FC<PlayProps> = ({
             {
                 setupInfo.chosenPlayers.map(x => (
                     <Button 
-                        variant="outline-primary"
+                        variant="outline-success"
                         onClick={() => endGame(x)}
                     >
                         {x} Won
